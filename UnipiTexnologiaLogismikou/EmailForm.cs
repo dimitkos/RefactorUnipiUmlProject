@@ -26,9 +26,12 @@ namespace UnipiTexnologiaLogismikou
             //για λογους ασφαλειας επιλεξαμε μην βαζει ακποιος το κανονικο μεηλ του και τους κωδικους του
             //ετσι λοιπον οτι μεηλ και να γραψει στο textbox θα φυγει και θα παραληφθει απο το παραπανω μεηλ
 
-            MailSender msender = new MailSender();
+            //MailSender msender = new MailSender();
 
-            msender.Sendmail(mailtextBox, messagetextBox);
+            //msender.Sendmail(mailtextBox, messagetextBox);
+
+            Student st = new Student();
+            st.Sendmail(mailtextBox, messagetextBox, msg);
         }
 
         private void backbutton_Click(object sender, EventArgs e)

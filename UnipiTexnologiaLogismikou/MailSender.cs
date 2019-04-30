@@ -22,7 +22,7 @@ namespace UnipiTexnologiaLogismikou
             try
             {
                 //φτιαχνω ενα αντικειμενο τυπου MailMessage οπου σαν ορισματα θα εχει το μεηλ αυτουνου που στελνει,που θα παει,το θεμα του μεηλ καθως και το κειμενο
-                msg = new MailMessage(textBox1.Text, "projectsunipi@gmail.com", "Costa Navarino ", textBox2.Text);
+                msg = new MailMessage(textBox1.Text, "projectsunipi@gmail.com", "Uml Project ", textBox2.Text);
             }
             catch (FormatException ex)
             {
@@ -45,6 +45,8 @@ namespace UnipiTexnologiaLogismikou
             mail.Credentials = new NetworkCredential("projectsunipi@gmail.com", "projectcsharp");
             //για να κρυπτογραφησει την επικοινωνια κανουμε ενεργοποιηση του  ssl
             mail.EnableSsl = true;
+
+
             //στελνει το μηνυμα στον  smtp server 
             try
             {
