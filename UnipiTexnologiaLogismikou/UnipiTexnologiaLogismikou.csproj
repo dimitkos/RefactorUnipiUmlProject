@@ -91,7 +91,6 @@
     </Compile>
     <Compile Include="GradeTools.cs" />
     <Compile Include="GradesInfo.cs" />
-    <Compile Include="MailSender.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgressForm.cs">
       <SubType>Form</SubType>
