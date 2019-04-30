@@ -15,6 +15,7 @@ namespace UnipiTexnologiaLogismikou
         GradesInfo grd = new GradesInfo();
         GradeTools grddal = new GradeTools();
 
+
         public FinalGradeForm()
         {
             InitializeComponent();
@@ -22,17 +23,27 @@ namespace UnipiTexnologiaLogismikou
 
         private void viewbutton_Click(object sender, EventArgs e)
         {
-            DataTable dt = grddal.Select();
+            Admin admin = new Admin()
+            {
+                gradeTools = grddal
+            };
+            DataTable dt =admin.gradeTools.Select();
+            //DataTable dt = grddal.Select();
             dataGridView1.DataSource = dt;
         }
 
         private void addbutton_Click(object sender, EventArgs e)
         {
+            Admin admin = new Admin()
+            {
+                gradeTools = grddal
+            };
+
             grd.id = idtextBox.Text;
             grd.grades = gradetextBox.Text;
 
 
-            bool success = grddal.Insert(grd);
+            bool success = admin.gradeTools.Insert(grd);
             if (success == true)
             {
                 //Data successfully Inserted
@@ -48,11 +59,16 @@ namespace UnipiTexnologiaLogismikou
 
         private void updatebutton_Click(object sender, EventArgs e)
         {
+            Admin admin = new Admin()
+            {
+                gradeTools = grddal
+            };
+
             grd.id = idtextBox.Text;
             grd.grades = gradetextBox.Text;
 
 
-            bool success = grddal.Update(grd);
+            bool success = admin.gradeTools.Update(grd);
             if (success == true)
             {
                 MessageBox.Show("Successfully update");
@@ -66,8 +82,13 @@ namespace UnipiTexnologiaLogismikou
 
         private void deletebutton_Click(object sender, EventArgs e)
         {
+            Admin admin = new Admin()
+            {
+                gradeTools = grddal
+            };
+
             grd.id = idtextBox.Text;
-            bool success = grddal.Delete(grd);
+            bool success = admin.gradeTools.Delete(grd);
             if (success == true)
             {
                 MessageBox.Show("User deleted successfully");
