@@ -70,5 +70,17 @@ namespace UnipiTexnologiaLogismikou
                 MessageBox.Show("Invalid Operation Exception");
             }
         }
+
+        public void UploadThesis(Button uploadbutton)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                uploadbutton.Enabled = false;
+                uploadbutton.Text = "Thesis Uploded";
+                MessageBox.Show("Thesis Uploded Successfully");
+            };
+        }
     }
 }

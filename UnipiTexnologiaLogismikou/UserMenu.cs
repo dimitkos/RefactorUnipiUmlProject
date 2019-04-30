@@ -51,13 +51,8 @@ namespace UnipiTexnologiaLogismikou
 
         private void uploadbutton_Click(object sender, EventArgs e)
         {
-            //Ean o xristis vali arxio thesis , sinexizi o kodikas
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                uploadbutton.Enabled = false;
-                uploadbutton.Text = "Thesis Uploded";
-                MessageBox.Show("Thesis Uploded Successfully");
-            };
+            Student st = new Student();
+            st.UploadThesis(uploadbutton);
         }
 
         private void UserMenu_FormClosing(object sender, FormClosingEventArgs e)
