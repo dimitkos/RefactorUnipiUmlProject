@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,10 @@ namespace UnipiTexnologiaLogismikou
 {
     public partial class ProgressForm : Form
     {
-
+        static string myconnstring = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
         ProgressInfo grd = new ProgressInfo();
         ProgressInfoTools grddal = new ProgressInfoTools();
+        Admin admin = new Admin();
 
         public ProgressForm()
         {
@@ -42,33 +45,11 @@ namespace UnipiTexnologiaLogismikou
 
         private void button1_Click(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            int i = Convert.ToInt32(textBox1.Text); // User id to check
-            int y = 0;
-            progressBar1.Step = 1; 
+            progressBar1.Value =admin.SelectProgress(textBox1.Text);
 
-            if (i == 1)
-            {
-                y = 70;
-            }
-            else if (i == 2)
-            {
-                y = 30;
-            }
-            else if (i == 3)
-            {
-                y = 90;
-            }
-            else if (i > 3 && i < 100)
-            {
-                y = 0;
-            }
-
-            for (int x = 0; x <= y; x++)
-            {
-                progressBar1.PerformStep();
-            }
         }
+
+       
 
         private void ProgressForm_FormClosing(object sender, FormClosingEventArgs e)
         {

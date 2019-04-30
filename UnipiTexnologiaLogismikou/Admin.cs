@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -79,6 +81,36 @@ namespace UnipiTexnologiaLogismikou
             {
                 MessageBox.Show(e4.GetType().Name);
             }
+        }
+
+        public int SelectProgress(string id)
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString);
+
+            int result = 0;
+            try
+            {
+                String sql = "SELECT progress  FROM dbo.progress  " +
+                    " where id=@id";
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@id", id);
+
+
+                con.Open();
+                result = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return result;
         }
     }
 }
