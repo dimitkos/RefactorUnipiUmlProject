@@ -96,7 +96,7 @@
             this.finalgradebutton.Name = "finalgradebutton";
             this.finalgradebutton.Size = new System.Drawing.Size(87, 23);
             this.finalgradebutton.TabIndex = 4;
-            this.finalgradebutton.Text = "Add  Grade";
+            this.finalgradebutton.Text = "Grades";
             this.finalgradebutton.UseVisualStyleBackColor = true;
             this.finalgradebutton.Click += new System.EventHandler(this.finalgradebutton_Click);
             // 
