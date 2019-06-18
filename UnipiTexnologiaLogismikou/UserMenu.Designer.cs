@@ -56,7 +56,7 @@
             this.uploadbutton.Name = "uploadbutton";
             this.uploadbutton.Size = new System.Drawing.Size(120, 23);
             this.uploadbutton.TabIndex = 1;
-            this.uploadbutton.Text = "Upload your Thesis";
+            this.uploadbutton.Text = "Upload Thesis";
             this.uploadbutton.UseVisualStyleBackColor = true;
             this.uploadbutton.Click += new System.EventHandler(this.uploadbutton_Click);
             // 
